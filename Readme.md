@@ -1,11 +1,11 @@
-# Ludum Dare 50
+# GMTK-2022
 
 **Remrque:** Il faut penser à ne pas modifier ensemble la scène car ce sera impossible à merge après coup. Vous pouvez donc utiliser un maximum les prefabs. Vous trouverez un prefab par personne avec votre nom dans la scène MainScene.
 
 ## Installation
 Pour installer le projet sur votre ordinateur, il vous faut tout d'abord git. Ensuite, éxécutez ces commandes:
 ```
-git clone https://github.com/ErikRikoo/LudumDare-50.git
+git clone https://github.com/ErikRikoo/GMTK-2022.git
 git flow init
 ```
 Pour la dernière commande, il va vous demander quelles sont les branches à utiliser. Juste appuyez sur Entrée à plusieurs reprises.
