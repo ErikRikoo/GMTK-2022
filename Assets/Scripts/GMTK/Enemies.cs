@@ -12,8 +12,15 @@ public class Enemies : Entity
         attack(player_holder.player);
     }
 
+    public override void TakeDamage(int damage_taken)
+    {
+        health = health - damage_taken;
+        if (health < 0)
+            health = 0;
+    }
+
     public void attack(Player player)
     {
-        
+        player.TakeDamage(damage);
     }
 }
