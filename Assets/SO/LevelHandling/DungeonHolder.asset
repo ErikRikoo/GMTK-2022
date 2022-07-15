@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5081ab144fa4d23b91639fd725f9b5d, type: 3}
+  m_Name: DungeonHolder
+  m_EditorClassIdentifier: 
+  m_Rooms:
+  - {fileID: 9010946727870422180, guid: 464d05419cb16164db05bfe5e3d02673, type: 3}
+  - {fileID: 4517333955310121538, guid: 28c5eae05357174469bd90911b8296bd, type: 3}
+  - {fileID: 2126032051122665678, guid: abdc0bd0baa9d9e419b405d5930b8d70, type: 3}
