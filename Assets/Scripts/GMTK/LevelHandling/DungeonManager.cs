@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using UnityAtoms.BaseAtoms;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ namespace GMTK.LevelHandling
         [SerializeField] private DungeonHolder m_DungeonData;
 
         [SerializeField] private RoomHolder m_CurrentRoom;
+        [SerializeField] private VoidEvent ChangeRoom ;
+        [SerializeField] private VoidEvent playerEscape;
 
         private int m_CurrentRoomIndex = 0;
 
@@ -56,6 +59,9 @@ namespace GMTK.LevelHandling
 
         private void Start()
         {
+            playerEscape.Register(PreviousRoom);
+            ChangeRoom.Register(NextRoom);
+            
             if (m_DungeonData.IsEmpty)
             {
                 throw new ArgumentException("Dungeon Data is empty, can't handle the dungeon instantiation");
@@ -77,6 +83,11 @@ namespace GMTK.LevelHandling
         public void NextRoom()
         {
             ++CurrentRoomIndex;
+        }
+
+        public void PreviousRoom()
+        {
+            --CurrentRoomIndex;
         }
     }
 }

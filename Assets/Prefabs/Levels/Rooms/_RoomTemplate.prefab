@@ -335,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entry: {fileID: 1242261045}
   Exit: {fileID: 472496140}
+  room_holder: {fileID: 11400000, guid: ac026cb511c6fbb459b35841ead7bd2d, type: 2}
   m_Enemies: []
   m_Loot: {fileID: 490610129}
   m_Size: {x: 5, y: 8}
