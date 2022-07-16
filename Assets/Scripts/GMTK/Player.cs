@@ -21,6 +21,7 @@ public class Player : Entity
     public override void Play()
     {
         number_parry = 0;
+      
     }
 
     public override void TakeDamage(int damage_taken)
@@ -54,9 +55,9 @@ public class Player : Entity
         number_parry++;
     }
 
-    public void Heal()
+    public void Heal(int heal_value)
     {
-        health++;
+        health+=heal_value;
     }
 
     public void escape()
