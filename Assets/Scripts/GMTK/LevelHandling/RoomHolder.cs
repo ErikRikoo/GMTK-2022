@@ -6,7 +6,6 @@ namespace GMTK.LevelHandling
     public class RoomHolder : ScriptableObject
     {
         [SerializeField]
-        [HideInInspector]
         public Room Room;
     }
 }
