@@ -15,30 +15,39 @@ public class TurnManager : MonoBehaviour
 
     private bool playerEscaped = false;
 
-    private int index_enemie = 0;
+    private IEnumerator coroutine;
+    
+    private int index_enemie;
     private int nbEnnemi;
     // Start is called before the first frame update
     void Start()
     {
         
         Debug.Log("STAAAAART");
-        turn();
+        
+        playerEscape.Register(escape);// s'il s'échappe on fini le tours
+
+        Turn();
     }
 
-    private void turn()
+    private void Turn()
     {
         nbEnnemi = current_room.Room.Enemies.Count();
-        IEnumerator coroutine = Turn_Coroutine();
-        coroutine.MoveNext();
-        playerEscape.Register(EndTurn);
-        if ((!playerEscaped) && (!current_room.Room.IsRoomEmpty))
+        index_enemie = 0;
+        coroutine = Turn_Coroutine();
+        coroutine.MoveNext();//Tours du Player
+        if ((!playerEscaped) && (!current_room.Room.IsRoomEmpty)) // s'il ne s'est pas échappé et qu'il reste des ennemies
         {
-            while ((!player_holder.player.IsDead()) && (index_enemie!=nbEnnemi))
-            {
-                coroutine.MoveNext();
-            }
-        
+            coroutine.MoveNext(); //Tours des enemies
+            if (player_holder.player.IsDead())
+                return;
+            else
+                Turn();
+
         }
+        else
+            EndTurn();
+
     }
     
 
@@ -48,7 +57,7 @@ public class TurnManager : MonoBehaviour
         Debug.Log("Code du joueur");
         player_holder.player.Play();
         //POUR LE TEST
-        player_holder.player.Attack(current_room.Room.Enemies.ElementAt(0));
+        player_holder.player.Attack(current_room.Room.Enemies.ElementAt(1));
         player_holder.player.Attack(current_room.Room.Enemies.ElementAt(0));
         //FIN DE POUR LE TEST
         yield return null;
@@ -58,8 +67,8 @@ public class TurnManager : MonoBehaviour
         {
             if(!current_room.Room.Enemies.ElementAt(index_enemie).IsDead())
                 current_room.Room.Enemies.ElementAt(index_enemie).Play();
-            yield return null;
         }
+        yield return null;
     }
 
     private void EndTurn()
@@ -76,10 +85,14 @@ public class TurnManager : MonoBehaviour
             ChangeRoom.Raise();
 
         }
-        else //le joueur à fuit
+        else if(playerEscaped) //le joueur à fuit
         {
-            playerEscaped = true;
             ChangeRoom.Raise();
         }
+    }
+
+    private void escape()
+    {
+        playerEscaped = true;
     }
 }
