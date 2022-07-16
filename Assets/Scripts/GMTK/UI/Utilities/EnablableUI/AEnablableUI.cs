@@ -5,6 +5,8 @@ namespace GMTK.UI.Utilities.EnablableUI
 {
     public abstract class AEnablableUI : MonoBehaviour
     {
+        
+        
         [SerializeField] private bool m_DefaultState;
         
         public bool m_State;

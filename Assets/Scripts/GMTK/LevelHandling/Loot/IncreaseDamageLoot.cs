@@ -9,14 +9,13 @@ namespace GMTK.LevelHandling.Loot
     [AbstractNaming("Increase Damage")]
     public class IncreaseDamageLoot : ALoot
     {
+        
         [SerializeField] private int m_DamageIncrease;
-
-
+        
         public override string LootInfo => $"Increase Damage by {m_DamageIncrease}";
         public override void ExecuteOn(Player _player)
         {
-            // TODO: Use Entity#Damage
-            _player.damage += m_DamageIncrease;
+            _player.Damage += m_DamageIncrease;
         }
     }
 }

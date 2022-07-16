@@ -4,13 +4,20 @@ using System.Collections.Generic;
 using GMTK.UI.PlayerActions.ActionType;
 using GMTK.UI.PlayerActions.BetTypes.ABetType;
 using GMTK.UI.Utilities.EnablableUI;
+using TMPro;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using Void = UnityAtoms.Void;
 
 namespace GMTK.UI.PlayerActions
 {
     public class PlayerActionsDisplay : MonoBehaviour
     {
+        [SerializeField] private RectTransform m_DebugPlace;
+        [SerializeField] private TextMeshProUGUI m_PrefabText;
+        
+        
+        
         [Header("Events")]
         [SerializeField] private VoidEvent m_StartPlayerTurn;
         [SerializeField] private VoidEvent m_EndOfTurn;
@@ -24,27 +31,22 @@ namespace GMTK.UI.PlayerActions
         [SerializeField] private AEnablableUI m_ButtonActions;
         [SerializeField] private BetPopUp m_BetPopUp;
 
-        public bool HasPlayerActionPoints => CurrentPlayer.number_action == 0;
+        public bool HasPlayerActionPoints => CurrentPlayer.number_action > 0;
 
         public Player CurrentPlayer => m_CurrentPlayer.player;
         
         private void Awake()
         {
             m_StartPlayerTurn.Register(OnStartPlayerTurn);
+            m_EndOfTurn.Register(OnEndOfTurn);
         }
 
         private void Start()
         {
             IsPlayerPlaying = false;
             m_BetPopUp.State = false;
-            StartCoroutine(c_Test());
         }
 
-        private IEnumerator c_Test()
-        {
-            yield return new WaitForSeconds(1f);
-            OnStartPlayerTurn();
-        }
 
         public bool IsPlayerPlaying
         {
@@ -57,10 +59,10 @@ namespace GMTK.UI.PlayerActions
 
         private void OnStartPlayerTurn()
         {
-            if (HasPlayerActionPoints)
+            if (!HasPlayerActionPoints)
             {
                 // TODO: Can't play
-                m_EndOfTurn.Raise();
+                m_ExecuteActions.Raise();
             }
             else
             {
@@ -70,6 +72,7 @@ namespace GMTK.UI.PlayerActions
 
         public void EndPlayerChoice()
         {
+            Debug.Log("End Player Choice");
             IsPlayerPlaying = false;
             m_ExecuteActions.Raise();
         }
@@ -78,19 +81,30 @@ namespace GMTK.UI.PlayerActions
         {
             m_BetPopUp.Display(() =>
             {
+                CurrentPlayer.number_action--;
+                AddAction(OnValidate(m_BetPopUp.BetType));
+                
                 if (!HasPlayerActionPoints)
                 {
                     EndPlayerChoice();
                 }
-
-                CurrentPlayer.number_action--;
-                AddAction(OnValidate(m_BetPopUp.BetType));
             }, () => {});
         }
         
         public void AddAction(APlayerAction action)
         {
             CurrentPlayer.AddAction(action);
+            var text = Instantiate(m_PrefabText, m_DebugPlace);
+            text.text = $"{action.GetType().Name} - {action.BetType.GetType().Name} - {action.BetType.DiceFace}";
+        }
+        
+        private void OnEndOfTurn()
+        {
+            Debug.Log("End of Turn in PlayerActionsDisplay");
+            for (int i = 1; i < m_DebugPlace.childCount; i++)
+            {
+                Destroy(m_DebugPlace.GetChild(i).gameObject);
+            }   
         }
     }
 }
