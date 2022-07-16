@@ -72,7 +72,6 @@ namespace GMTK.UI.PlayerActions
 
         public void EndPlayerChoice()
         {
-            Debug.Log("End Player Choice");
             IsPlayerPlaying = false;
             m_ExecuteActions.Raise();
         }
