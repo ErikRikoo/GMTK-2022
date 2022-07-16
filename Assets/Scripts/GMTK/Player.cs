@@ -47,7 +47,11 @@ public class Player : Entity
     
     public void Attack(Enemies enemies)
     {
+        Debug.Log("sante de l'ennemie "+enemies.health);
+        Debug.Log("joueur attaque "+enemies.name);
+        //Debug.Log(enemies.name);
         enemies.TakeDamage(damage);
+        Debug.Log("sante de l'ennemie "+enemies.health);
     }
 
     public void Parry()
@@ -66,4 +70,5 @@ public class Player : Entity
     }
     private int number_parry;
     public int number_action;
+    public int score;
 }

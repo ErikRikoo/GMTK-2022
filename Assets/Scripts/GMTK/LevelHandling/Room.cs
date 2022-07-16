@@ -17,6 +17,9 @@ namespace GMTK.LevelHandling
     {
         [SerializeField] public Transform Entry;
         [SerializeField] public Transform Exit;
+        //POUR TEST
+        [SerializeField] private RoomHolder room_holder;
+        //FIN 
 
         [SerializeField] private List<Enemies> m_Enemies;
 
@@ -27,6 +30,12 @@ namespace GMTK.LevelHandling
         [SerializeField] private RoomLoot m_Loot;
 
         private bool m_IsLooted;
+
+        private void Awake()
+        {
+            room_holder.Room = this;
+        }
+
         public IEnumerator<ALoot> Loot
         {
             get

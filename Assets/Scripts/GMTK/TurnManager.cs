@@ -14,42 +14,57 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private VoidEvent playerEscape;
 
     private bool playerEscaped = false;
+
+    private int index_enemie = 0;
+    private int nbEnnemi;
     // Start is called before the first frame update
     void Start()
     {
-        // player_holder.player.Play();
-        // for (int i = 0; i < current_room.Room.Enemies.Count(); i++)
-        // {
-        //     current_room.Room.Enemies
-        // }
-        IEnumerator coroutine = Turn();
+        
+        Debug.Log("STAAAAART");
+        turn();
+    }
+
+    private void turn()
+    {
+        nbEnnemi = current_room.Room.Enemies.Count();
+        IEnumerator coroutine = Turn_Coroutine();
+        coroutine.MoveNext();
         playerEscape.Register(EndTurn);
         if ((!playerEscaped) && (!current_room.Room.IsRoomEmpty))
         {
-            while (!player_holder.player.IsDead())
+            while ((!player_holder.player.IsDead()) && (index_enemie!=nbEnnemi))
             {
                 coroutine.MoveNext();
             }
-
+        
         }
     }
+    
 
-    public IEnumerator Turn()
+    private IEnumerator Turn_Coroutine()
     {
+        
         Debug.Log("Code du joueur");
         player_holder.player.Play();
+        //POUR LE TEST
+        player_holder.player.Attack(current_room.Room.Enemies.ElementAt(0));
+        player_holder.player.Attack(current_room.Room.Enemies.ElementAt(0));
+        //FIN DE POUR LE TEST
         yield return null;
-        int nbEnnemi = current_room.Room.Enemies.Count();
-        for (int i = 0; i < nbEnnemi; ++i)
+        Debug.Log("Code des enemies");
+        
+        for (; index_enemie < nbEnnemi; index_enemie++)
         {
-            if(!current_room.Room.Enemies.ElementAt(i).IsDead())
-                current_room.Room.Enemies.ElementAt(i).Play();
+            if(!current_room.Room.Enemies.ElementAt(index_enemie).IsDead())
+                current_room.Room.Enemies.ElementAt(index_enemie).Play();
             yield return null;
         }
     }
 
-    void EndTurn()
+    private void EndTurn()
     {
+        Debug.Log("FIN du tour");
         if (current_room.Room.IsRoomEmpty)//si la salle est vide = tous les monstres sont morts
         {
             //donne le loot (augumente damage ou health)
