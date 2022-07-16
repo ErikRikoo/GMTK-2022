@@ -24,6 +24,23 @@ namespace GMTK.LevelHandling
 
         public bool IsRoomEmpty => m_Enemies.All(e => e.IsDead());
 
+        [SerializeField] private RoomLoot m_Loot;
+
+        private bool m_IsLooted;
+        public IEnumerator<ALoot> Loot
+        {
+            get
+            {
+                if (m_IsLooted)
+                {
+                    return null;
+                }
+                
+                m_IsLooted = true;
+                return m_Loot.Loot;
+            }
+        }
+
 #if UNITY_EDITOR
         #region Unity Editor Generation
 

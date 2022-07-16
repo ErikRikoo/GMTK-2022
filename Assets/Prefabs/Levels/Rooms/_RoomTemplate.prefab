@@ -120,14 +120,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772914878}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 200574518}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &939274515
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,14 +244,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268708684}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 5, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 200574518}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1569530977
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,14 +275,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569530977}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -5, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 200574518}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &8534035980083268378
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8534035980083268356}
   - component: {fileID: 8534035980083268379}
+  - component: {fileID: 490610129}
   m_Layer: 0
   m_Name: _RoomTemplate
   m_TagString: Untagged
@@ -335,12 +336,30 @@ MonoBehaviour:
   Entry: {fileID: 1242261045}
   Exit: {fileID: 472496140}
   m_Enemies: []
-  m_Size: {x: 10, y: 4}
-  m_EntryPosition: 5
-  m_ExitPosition: 5
+  m_Loot: {fileID: 490610129}
+  m_Size: {x: 5, y: 8}
+  m_EntryPosition: 2
+  m_ExitPosition: 3
   m_GenerationInfo: {fileID: 11400000, guid: 6b3f3f1effaba854e92a14d3a971aa01, type: 2}
   m_Floor: {fileID: 1072567559}
   m_WallsSouth: {fileID: 939274516}
   m_WallsNorth: {fileID: 772914879}
   m_WallsWest: {fileID: 1569530978}
   m_WallsEast: {fileID: 1268708685}
+--- !u!114 &490610129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534035980083268378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f88cd4682d41979b7d3429c7587819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Loots: []
+  m_RandomLoot: 0
+  references:
+    version: 2
+    RefIds: []

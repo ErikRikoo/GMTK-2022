@@ -16,4 +16,6 @@ MonoBehaviour:
   defaultEditorBehaviour: 11
   processMouseMoveInInspector: 1
   drawingConfig:
-    configs: []
+    configs:
+    - DrawnTypeName: GMTK.LevelHandling.Loot.RoomLoot, Assembly-CSharp
+      EditorTypeName: 

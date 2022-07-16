@@ -619,46 +619,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 772914879, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 772914879, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 772914879, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268708685, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268708685, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268708685, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268708685, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1569530978, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1569530978, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1569530978, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
     - target: {fileID: 8534035980083268356, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -706,22 +666,6 @@ PrefabInstance:
     - target: {fileID: 8534035980083268378, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
       propertyPath: m_Name
       value: Room Template
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534035980083268379, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_Size.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534035980083268379, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_Size.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534035980083268379, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_ExitPosition
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534035980083268379, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
-      propertyPath: m_EntryPosition
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bf2f485e04c5c946ba1bfe52b1db1a8, type: 3}
