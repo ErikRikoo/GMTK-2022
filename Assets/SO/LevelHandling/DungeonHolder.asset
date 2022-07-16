@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5081ab144fa4d23b91639fd725f9b5d, type: 3}
   m_Name: DungeonHolder
   m_EditorClassIdentifier: 
-  m_Rooms:
-  - {fileID: 9010946727870422180, guid: 464d05419cb16164db05bfe5e3d02673, type: 3}
-  - {fileID: 4517333955310121538, guid: 28c5eae05357174469bd90911b8296bd, type: 3}
-  - {fileID: 2126032051122665678, guid: abdc0bd0baa9d9e419b405d5930b8d70, type: 3}
+  m_Rooms: []
