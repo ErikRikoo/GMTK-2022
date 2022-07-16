@@ -11,6 +11,7 @@
    sodipodi:docname="UI.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -24,9 +25,9 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.59405074"
-     inkscape:cx="648.09278"
-     inkscape:cy="494.06554"
+     inkscape:zoom="0.59405075"
+     inkscape:cx="1247.3682"
+     inkscape:cy="630.41752"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
@@ -93,9 +94,235 @@
          result="blur"
          id="feGaussianBlur7197" />
     </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Blur"
+       id="filter9626"
+       x="-0.0036283464"
+       y="-0.0036283464"
+       width="1.0072567"
+       height="1.0072567">
+      <feGaussianBlur
+         stdDeviation="0.1 0.1"
+         result="blur"
+         id="feGaussianBlur9624" />
+    </filter>
+    <symbol
+       id="g8834">
+      <rect
+         style="fill:#e3cc14;fill-opacity:1;stroke:none;stroke-width:0.972344"
+         id="rect280"
+         width="67.73333"
+         height="67.73333"
+         x="220.13333"
+         y="109.00833"
+         rx="2.6458333"
+         ry="2.6458333"
+         inkscape:label="Background" />
+      <rect
+         style="fill:#f8f1ae;fill-opacity:1;stroke:none;stroke-width:0.972344;filter:url(#filter9626)"
+         id="rect3903"
+         width="66.145836"
+         height="66.145836"
+         x="220.92708"
+         y="109.80208"
+         rx="10.583333"
+         ry="10.583333"
+         inkscape:label="Front" />
+    </symbol>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Blur"
+       id="filter4418"
+       x="-0.12732974"
+       y="-0.12732977"
+       width="1.2546595"
+       height="1.2546595">
+      <feGaussianBlur
+         stdDeviation="0.2 0.2"
+         result="fbSourceGraphic"
+         id="feGaussianBlur4416" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix4425" />
+      <feGaussianBlur
+         id="feGaussianBlur4427"
+         stdDeviation="0.2 0.2"
+         result="blur"
+         in="fbSourceGraphic" />
+    </filter>
+    <symbol
+       id="symbol5538">
+      <ellipse
+         style="fill:#323232;fill-opacity:1;stroke:#010101;stroke-width:0.529167;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4418)"
+         id="path406"
+         cx="249.54684"
+         cy="117.04338"
+         rx="4.8087096"
+         ry="4.8087087" />
+    </symbol>
   </defs>
   <g
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
-     id="layer1" />
+     id="layer1">
+    <g
+       id="g5556"
+       inkscape:label="Face_One"
+       transform="translate(-117.23126,-4.2311901)"
+       inkscape:export-filename="dice-face-1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <use
+         xlink:href="#g8834"
+         id="use283"
+         transform="translate(-53.575201)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5541"
+         transform="translate(-49.12205,25.831619)" />
+    </g>
+    <g
+       id="g5562"
+       inkscape:label="Face_wo"
+       transform="translate(-40.847143,-4.6765786)"
+       inkscape:export-filename="dice-face-2.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <use
+         xlink:href="#g8834"
+         id="use5558"
+         transform="translate(-53.575201)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5560"
+         transform="translate(-69.16453,5.5664452)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5564"
+         transform="translate(-28.856877,46.096792)" />
+    </g>
+    <g
+       id="g5605"
+       inkscape:label="Face_three"
+       transform="translate(41.327022,-5.121967)"
+       inkscape:export-filename="dice-face-3.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <use
+         xlink:href="#g8834"
+         id="use5599"
+         transform="translate(-53.575201)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5601"
+         transform="translate(-48.693613,2.7320106)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5603"
+         transform="translate(-48.540451,48.301352)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5607"
+         transform="translate(-49.166019,25.407487)" />
+    </g>
+    <g
+       id="g5653"
+       inkscape:label="Face_four"
+       transform="translate(119.96842,-5.9046745)"
+       inkscape:export-filename="dice-face-4.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <use
+         xlink:href="#g8834"
+         id="use5647"
+         transform="translate(-53.575201)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5649"
+         transform="translate(-69.16453,5.5664452)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5651"
+         transform="translate(-28.856877,46.096792)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5655"
+         transform="translate(-68.538962,46.254261)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5657"
+         transform="translate(-30.903969,5.3124273)" />
+    </g>
+    <g
+       id="g5713"
+       inkscape:label="Face_five"
+       transform="translate(194.34829,-4.5685094)"
+       inkscape:export-filename="dice-face-5.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <use
+         xlink:href="#g8834"
+         id="use5703"
+         transform="translate(-53.575201)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5705"
+         transform="translate(-69.16453,5.5664452)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5707"
+         transform="translate(-28.856877,46.096792)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5709"
+         transform="translate(-68.538962,46.254261)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5711"
+         transform="translate(-30.903969,5.3124273)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5715"
+         transform="translate(-49.170325,26.885624)" />
+    </g>
+    <g
+       id="g5727"
+       inkscape:label="Face_six"
+       transform="translate(269.77045,-0.61404764)"
+       inkscape:export-filename="dice-face-6.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <use
+         xlink:href="#g8834"
+         id="use5717"
+         transform="translate(-53.575201)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5719"
+         transform="translate(-69.16453,5.5664452)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5721"
+         transform="translate(-28.856877,46.096792)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5723"
+         transform="translate(-68.538962,46.254261)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5725"
+         transform="translate(-30.903969,5.3124273)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5729"
+         transform="translate(-29.302265,24.718147)" />
+      <use
+         xlink:href="#symbol5538"
+         id="use5731"
+         transform="translate(-68.98435,24.875616)" />
+    </g>
+  </g>
 </svg>
