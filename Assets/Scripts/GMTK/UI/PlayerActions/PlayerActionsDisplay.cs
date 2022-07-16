@@ -1,12 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using GMTK.UI.PlayerActions.ActionType;
 using GMTK.UI.PlayerActions.BetTypes.ABetType;
 using GMTK.UI.Utilities.EnablableUI;
-using Unity.VisualScripting;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
-using Void = UnityAtoms.Void;
 
 namespace GMTK.UI.PlayerActions
 {
@@ -25,7 +24,9 @@ namespace GMTK.UI.PlayerActions
         [SerializeField] private AEnablableUI m_ButtonActions;
         [SerializeField] private BetPopUp m_BetPopUp;
 
-        public bool HasPlayerActionPoints => m_CurrentPlayer.player.number_action == 0;
+        public bool HasPlayerActionPoints => CurrentPlayer.number_action == 0;
+
+        public Player CurrentPlayer => m_CurrentPlayer.player;
         
         private void Awake()
         {
@@ -36,6 +37,13 @@ namespace GMTK.UI.PlayerActions
         {
             IsPlayerPlaying = false;
             m_BetPopUp.State = false;
+            StartCoroutine(c_Test());
+        }
+
+        private IEnumerator c_Test()
+        {
+            yield return new WaitForSeconds(1f);
+            OnStartPlayerTurn();
         }
 
         public bool IsPlayerPlaying
@@ -75,13 +83,14 @@ namespace GMTK.UI.PlayerActions
                     EndPlayerChoice();
                 }
 
+                CurrentPlayer.number_action--;
                 AddAction(OnValidate(m_BetPopUp.BetType));
             }, () => {});
         }
         
         public void AddAction(APlayerAction action)
         {
-            
+            CurrentPlayer.AddAction(action);
         }
     }
 }

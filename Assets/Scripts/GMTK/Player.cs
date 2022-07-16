@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using GMTK;
+using GMTK.UI.PlayerActions.ActionType;
 using Unity.VisualScripting;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class Player : Entity
 {
+    [SerializeField] private VoidEvent m_PlayerTurn;
+    
     [SerializeField] private Player_holder player_holder;
     [SerializeField] private VoidEvent playerIsDead;
     [SerializeField] private VoidEvent playerEscape;
@@ -21,7 +24,7 @@ public class Player : Entity
     public override void Play()
     {
         number_parry = 0;
-      
+        m_PlayerTurn.Raise();
     }
 
     public override void TakeDamage(int damage_taken)
@@ -62,6 +65,10 @@ public class Player : Entity
     public void Heal(int heal_value)
     {
         health+=heal_value;
+        if (health > health_max)
+        {
+            health = health_max;
+        }
     }
 
     public void escape()
@@ -71,4 +78,10 @@ public class Player : Entity
     private int number_parry;
     public int number_action;
     public int score;
+
+    private List<APlayerAction> m_Actions = new();
+    public void AddAction(APlayerAction action)
+    {
+        m_Actions.Add(action);
+    }
 }

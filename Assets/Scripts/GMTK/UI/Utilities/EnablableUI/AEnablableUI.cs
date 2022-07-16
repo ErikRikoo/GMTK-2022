@@ -21,7 +21,7 @@ namespace GMTK.UI.Utilities.EnablableUI
 
         protected abstract void OnStateChanged(bool state);
 
-        private void Start()
+        protected void Start()
         {
             State = m_DefaultState;
         }

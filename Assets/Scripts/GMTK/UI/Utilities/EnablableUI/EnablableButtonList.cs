@@ -21,7 +21,7 @@ namespace GMTK.UI.Utilities.EnablableUI
         {
             foreach (var button in m_Buttons)
             {
-                button.enabled = state;
+                button.interactable = state;
             }
         }
     }

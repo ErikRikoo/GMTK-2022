@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    [SerializeField] private int health_max;
+    [SerializeField] protected int health_max;
     
     public abstract void Play();
     public abstract void TakeDamage(int damage_taken);

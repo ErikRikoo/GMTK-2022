@@ -16,7 +16,7 @@ namespace GMTK.UI.Utilities.EnablableUI
 
         protected override void OnStateChanged(bool state)
         {
-            m_Button.enabled = false;
+            m_Button.interactable = state;
         }
     }
 }

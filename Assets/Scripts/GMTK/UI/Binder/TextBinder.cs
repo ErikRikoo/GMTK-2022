@@ -10,16 +10,13 @@ namespace GMTK.UI.Binder
     {
         [SerializeField] private string m_Format = "{0}";
         
-        [SerializeField] private IntVariable m_VariableToBind;
+        [SerializeField] private IntEvent m_Event;
         private TextMeshProUGUI m_Text;
 
         private void Awake()
         {
             m_Text = GetComponent<TextMeshProUGUI>();
-            if (m_VariableToBind.Changed)
-            {
-                m_VariableToBind.Changed.Register(OnChanged);
-            }
+            m_Event.Register(OnChanged);
         }
 
         private void OnChanged(int _value)
