@@ -19,10 +19,9 @@ public abstract class Entity : MonoBehaviour
     {
         if (health == 0)
             return true;
-        Debug.Log(this.name + "is alive with" + this.health);
         return false;
     }
     
-    public int health;//remettre en protected aprés le test
+    protected int health;
     public int damage;
 }

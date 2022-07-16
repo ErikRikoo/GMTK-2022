@@ -22,11 +22,7 @@ public class TurnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        Debug.Log("STAAAAART");
-        
         playerEscape.Register(escape);// s'il s'échappe on fini le tours
-
         Turn();
     }
 
@@ -56,10 +52,6 @@ public class TurnManager : MonoBehaviour
         
         Debug.Log("Code du joueur");
         player_holder.player.Play();
-        //POUR LE TEST
-        player_holder.player.Attack(current_room.Room.Enemies.ElementAt(1));
-        player_holder.player.Attack(current_room.Room.Enemies.ElementAt(0));
-        //FIN DE POUR LE TEST
         yield return null;
         Debug.Log("Code des enemies");
         
@@ -73,11 +65,15 @@ public class TurnManager : MonoBehaviour
 
     private void EndTurn()
     {
-        Debug.Log("FIN du tour");
         if (current_room.Room.IsRoomEmpty)//si la salle est vide = tous les monstres sont morts
         {
-            //donne le loot (augumente damage ou health)
-            
+            Debug.Log("Salle nettoyée!!");
+
+            var loot = current_room.Room.Loot;
+             while (loot.MoveNext())
+             {
+                 loot.Current.ExecuteOn(player_holder.player);
+            }
             //donne points d'action
             player_holder.player.number_action += current_room.Room.Enemies.Count();
             
@@ -87,6 +83,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(playerEscaped) //le joueur à fuit
         {
+            Debug.Log("C'est la fouite");
             ChangeRoom.Raise();
         }
     }

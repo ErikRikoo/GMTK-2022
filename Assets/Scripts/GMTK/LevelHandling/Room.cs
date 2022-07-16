@@ -29,7 +29,7 @@ namespace GMTK.LevelHandling
 
         [SerializeField] private RoomLoot m_Loot;
 
-        private bool m_IsLooted;
+       // private bool m_IsLooted;
 
         private void Awake()
         {
@@ -40,12 +40,12 @@ namespace GMTK.LevelHandling
         {
             get
             {
-                if (m_IsLooted)
-                {
-                    return null;
-                }
+                // if (m_IsLooted)
+                // {
+                //     return null;
+                // }
                 
-                m_IsLooted = true;
+             //   m_IsLooted = true;
                 return m_Loot.Loot;
             }
         }

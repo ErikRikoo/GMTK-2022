@@ -21,9 +21,6 @@ public class Enemies : Entity
 
     public void attack(Player player)
     {
-        Debug.Log("sante du player"+player.health);
-        Debug.Log(this.name+"attaque");
         player.TakeDamage(damage);
-        Debug.Log("sante du player"+player.health);
     }
 }
