@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GMTK;
+using GMTK.UI;
 using GMTK.UI.PlayerActions.ActionType;
 using Unity.VisualScripting;
 using UnityAtoms;
@@ -9,6 +10,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    [SerializeField] private BetLauncher m_BetLauncher;
     [SerializeField] private VoidEvent m_EndOfTurn;
     
     [SerializeField] private VoidEvent m_PlayerTurn;
@@ -46,12 +48,27 @@ public class Player : Entity
         number_parry = 0;
         m_PlayerTurn.Raise();
     }
+
+    private IEnumerator ActionsExecutor;
     
     private void OnExecuteActions()
     {
+        ActionsExecutor = ExecuteActions();
+        ActionsExecutor.MoveNext();
+    }
+
+    private IEnumerator ExecuteActions()
+    {
         foreach (var action in m_Actions)
         {
-            Debug.Log($"{action.GetType().Name} - {action.BetType.GetType().Name} - {action.BetType.DiceFace}");
+            m_BetLauncher.LaunchBet((face) =>
+            {            
+                // TODO: Display and say which action has been executed for player and UI
+                Debug.Log($"{action.GetType().Name} - {action.BetType.GetType().Name} - {action.BetType.DiceFace}");
+                action.ExecuteIfPossible(face, this);
+                ActionsExecutor.MoveNext();
+            });
+            yield return null;
         }
         m_Actions.Clear();
         m_EndOfTurn.Raise();
