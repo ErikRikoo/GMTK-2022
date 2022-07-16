@@ -24,9 +24,9 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.42005731"
-     inkscape:cx="414.22919"
-     inkscape:cy="736.80422"
+     inkscape:zoom="0.59405074"
+     inkscape:cx="648.09278"
+     inkscape:cy="494.06554"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
@@ -97,78 +97,5 @@
   <g
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <g
-       id="g5719"
-       inkscape:label="HeadIcon"
-       transform="matrix(0.91881813,0,0,0.91881813,-38.399077,207.24708)">
-      <circle
-         style="fill:none;stroke:#565656;stroke-width:4.33679;stroke-dasharray:none;stroke-opacity:1"
-         id="path191"
-         cx="67.733337"
-         cy="67.733337"
-         inkscape:label="Base"
-         r="65.564911" />
-      <circle
-         style="fill:none;stroke:#b5b5b5;stroke-width:1.54964;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter2383)"
-         id="circle1198"
-         cx="-196.21106"
-         cy="94.126152"
-         r="64"
-         inkscape:label="Blurred"
-         transform="matrix(1.0263115,0,0,1.0225497,268.89532,-28.594263)" />
-      <circle
-         style="fill:none;stroke:#3b3b3b;stroke-width:1.05825486;stroke-dasharray:none;stroke-opacity:1"
-         id="circle3534"
-         cx="67.73333"
-         cy="67.73333"
-         inkscape:label="Base"
-         r="67.454468" />
-    </g>
-    <g
-       id="g7619"
-       inkscape:label="BaseSquare">
-      <rect
-         style="fill:#5e5e5e;stroke:none;stroke-width:4.23333333;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
-         id="rect7564"
-         width="135.46666"
-         height="135.46666"
-         x="159.38556"
-         y="69.090172"
-         rx="4.2333331"
-         ry="4.2333331"
-         inkscape:label="Background" />
-      <rect
-         style="fill:none;stroke:#4e4e4e;stroke-width:4.41056;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7199)"
-         id="rect7589"
-         width="135.46666"
-         height="135.46666"
-         x="159.38556"
-         y="69.090172"
-         rx="4.2333331"
-         ry="4.2333331"
-         inkscape:label="Blurred"
-         transform="matrix(0.96649314,0,0,0.96596638,7.2951035,4.3782315)" />
-      <rect
-         style="fill:none;stroke:#3e3e3e;stroke-width:4.23333333;stroke-dasharray:none;stroke-opacity:1"
-         id="rect6085"
-         width="135.46666"
-         height="135.46666"
-         x="159.38556"
-         y="69.090172"
-         rx="4.2333331"
-         ry="4.2333331"
-         inkscape:label="Base" />
-      <rect
-         style="fill:none;stroke:#7b7b7b;stroke-width:1.05833333;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7199)"
-         id="rect6081"
-         width="135.46666"
-         height="135.46666"
-         x="159.38556"
-         y="69.090172"
-         rx="4.2333331"
-         ry="4.2333331"
-         inkscape:label="Blurred" />
-    </g>
-  </g>
+     id="layer1" />
 </svg>
