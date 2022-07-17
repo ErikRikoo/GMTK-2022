@@ -15,6 +15,10 @@ PrefabInstance:
 
         v = Restart'
       objectReference: {fileID: 0}
+    - target: {fileID: 4972954916622614141, guid: 4f6c9b9b68c035a4ba053b84c409884c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7781374625824406651, guid: 4f6c9b9b68c035a4ba053b84c409884c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

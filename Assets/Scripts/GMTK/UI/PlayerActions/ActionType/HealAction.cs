@@ -4,7 +4,7 @@
     {
         protected override void ExecuteOn(Player player)
         {
-            player.Heal(1);
+            player.Heal(player.var_heal);
         }
     }
 }
