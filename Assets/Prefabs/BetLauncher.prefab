@@ -130,7 +130,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 32f31ced15eaeb848a26041498adf31c, type: 3}
   - {fileID: 21300000, guid: 7af4330ab865725499b8f47838aaf126, type: 3}
   m_BetDuration: 0.5
-  m_RefreshRate: 0.1
+  m_RefreshRate: 0.05
 --- !u!1 &7626854071290172117
 GameObject:
   m_ObjectHideFlags: 0

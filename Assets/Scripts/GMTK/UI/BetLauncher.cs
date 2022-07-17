@@ -23,26 +23,32 @@ namespace GMTK.UI
         
         public void LaunchBet(Action<int> OnBetFinished)
         {
+            Debug.Log("Enter bet");
             StartCoroutine(c_Bet(OnBetFinished));
         }
 
         public IEnumerator c_Bet(Action<int> OnBetFinished)
         {
             m_Image.gameObject.SetActive(true);
-            int value;
+            int value = 1;
             float time = 0;
             while (time < m_BetDuration)
             {
                 value = Random.Range(1, 7);
                 UpdateText(value);
-                time += m_RefreshRate;
-                yield return new WaitForSeconds(m_RefreshRate);
+                float nextTime = time + m_RefreshRate;
+                while (time < nextTime)
+                {
+                    yield return null;
+                    time += Time.deltaTime;
+                }
+
+                
             }
             
-            value = Random.Range(1, 7);
-            UpdateText(value);
-            OnBetFinished(value);
             m_Image.gameObject.SetActive(false);
+
+            OnBetFinished(value);
 
         }
 

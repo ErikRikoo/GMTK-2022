@@ -72,6 +72,7 @@ public class Player : Entity
 
     private IEnumerator ExecuteActions()
     {
+        int i = 0;
         foreach (var action in m_Actions)
         {
             m_BetLauncher.LaunchBet((face) =>
@@ -82,6 +83,7 @@ public class Player : Entity
                 ActionsExecutor.MoveNext();
             });
             yield return null;
+            ++i;
         }
         m_Actions.Clear();
         m_EndOfTurn.Raise();
