@@ -8,6 +8,7 @@ using GMTK.LevelHandling.Loot;
 using GMTK.Utilities.Extensions;
 using NaughtyAttributes;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -148,10 +149,9 @@ namespace GMTK.LevelHandling
         private void InstantiateElement(GameObject element, Vector2Int _pos, Transform _parent)
         {
             var originalPosition = element.transform.position;
-            var item = Instantiate(
-                element, _parent, false
-            );
-            item.transform.localPosition = originalPosition + _pos.ToFloat().X0Y();
+            GameObject gameObject = (GameObject) PrefabUtility.InstantiatePrefab(element);
+            gameObject.transform.SetParent(_parent, false);
+            gameObject.transform.localPosition = _pos.ToFloat().X0Y();
         }
 
         private void UpdatePositions()
