@@ -2,7 +2,7 @@
 {
     public class EqualBetType : ABetType
     {
-        public override float Risk => 1 / 6f;
+        public override float Risk => 5 / 6f;
         public override string DisplayType => "=";
 
         public override bool IsFaceValid(int _face)
