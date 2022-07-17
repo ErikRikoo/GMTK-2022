@@ -17,13 +17,13 @@ namespace GMTK.UI.Utilities
             State = true;
         }
 
-        public void Cancel()
+        public virtual void Cancel()
         {
             State = false;
             m_OnCancel?.Invoke();
         }
 
-        public void Validate()
+        public virtual void Validate()
         {
             State = false;
             m_OnValidate?.Invoke();

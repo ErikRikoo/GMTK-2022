@@ -20,8 +20,8 @@ namespace GMTK.UI.PlayerActions
         [SerializeField] private Button m_ButtonGreaterBetType;
         [SerializeField] private Button m_ButtonEqualBetType;
 
-        [SerializeField] private Button[] m_DiceFaces;
-
+        [SerializeField] private DiceFaceBetDisplay m_DiceFacesDisplay;
+        
         private int m_CurrentlySelectedFace = -1;
         
 
@@ -42,29 +42,46 @@ namespace GMTK.UI.PlayerActions
                 GetButtonEventFor(m_ButtonEqualBetType, () => new EqualBetType())
                 );
             
-            for (var i = 0; i < m_DiceFaces.Length; i++)
+            for (var i = 0; i < m_DiceFacesDisplay.Count; i++)
             {
                 int index = i;
-                m_DiceFaces[i].onClick.AddListener(() =>
+                m_DiceFacesDisplay[i].onClick.AddListener(() =>
                 {
                     m_CurrentlySelectedFace = index + 1;
                     UpdateBetDiceFace();
                 });
             }
+
+            SetSecondSpaceUIState();
         }
+
+
 
         private UnityAction GetButtonEventFor(Button button, Func<ABetType> _bet)
         {
             return () =>
             {
-                m_ButtonLowerBetType.interactable = true;
-                m_ButtonGreaterBetType.interactable = true;
-                m_ButtonEqualBetType.interactable = true;
+                ResetTypeButtons();
                 button.interactable = false;
 
                 m_BetType = _bet();
+                SetSecondSpaceUIState(true);
+
                 UpdateBetDiceFace();
             };
+        }
+
+        private void ResetTypeButtons()
+        {
+            m_ButtonLowerBetType.interactable = true;
+            m_ButtonGreaterBetType.interactable = true;
+            m_ButtonEqualBetType.interactable = true;
+        }
+        
+        private void SetSecondSpaceUIState(bool state = false)
+        {
+            m_DiceFacesDisplay.State = state;
+            m_RiskDisplay.gameObject.SetActive(state);
         }
 
         private void UpdateBetDiceFace()
@@ -78,9 +95,29 @@ namespace GMTK.UI.PlayerActions
                 if (m_BetType != null)
                 {
                     m_BetType.DiceFace = m_CurrentlySelectedFace;
+                    m_DiceFacesDisplay.UpdateBetDiceFace(m_CurrentlySelectedFace, m_BetType);
+
                     m_RiskDisplay.text = String.Format(m_RiskFormat, (int)(m_BetType.Risk * 100));
                 }
             }
+        }
+
+        public override void Cancel()
+        {
+            ResetPopUp();
+            base.Cancel();
+        }
+
+        public override void Validate()
+        {
+            ResetPopUp();
+            base.Validate();
+        }
+        
+        private void ResetPopUp()
+        {
+            ResetTypeButtons();
+            ResetTypeButtons();
         }
     }
 }
