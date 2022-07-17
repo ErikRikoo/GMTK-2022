@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DungeonHolder
   m_EditorClassIdentifier: 
   m_Rooms:
-  - {fileID: 6973649678644021533, guid: f20a38c719231854b9f1491a1d20ef25, type: 3}
-  - {fileID: 1086749024758553771, guid: 7585cfc693109e0419da1309ef90831f, type: 3}
-  - {fileID: 9109896157080900656, guid: 844ba0bb44019084088476fef6743070, type: 3}
-  - {fileID: 889271367534527747, guid: a69952cd1b4171d40a131259080c6797, type: 3}
+  - {fileID: 886721880723805475, guid: 349c87b43185d88479f10a91bb710110, type: 3}
+  - {fileID: 6097498834493195647, guid: 6d6ed2450c7f9534888a8ff2e2cca44c, type: 3}
+  - {fileID: 6064082227790582587, guid: 53ab87c2da36e5f46baabc4995f4295e, type: 3}
+  - {fileID: 3690182272280506584, guid: 9f980344306ea4748a332ef78690ea8c, type: 3}

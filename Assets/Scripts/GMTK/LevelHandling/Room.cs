@@ -40,6 +40,7 @@ namespace GMTK.LevelHandling
             {
                 room_holder.Room = this;
             }
+            m_Enemies.AddRange(m_EnemiesHolder.GetComponentsInChildren<Enemies>());
         }
 
         public IEnumerator<ALoot> Loot
@@ -99,6 +100,7 @@ namespace GMTK.LevelHandling
         [SerializeField] private Transform m_WallsNorth;
         [SerializeField] private Transform m_WallsWest;
         [SerializeField] private Transform m_WallsEast;
+        [SerializeField] private Transform m_EnemiesHolder;
         [SerializeField] private Transform m_Fog;
 
         [Sirenix.OdinInspector.Button]
@@ -149,7 +151,6 @@ namespace GMTK.LevelHandling
 
         private void InstantiateElement(GameObject element, Vector2Int _pos, Transform _parent)
         {
-            var originalPosition = element.transform.position;
             GameObject gameObject = (GameObject) PrefabUtility.InstantiatePrefab(element);
             gameObject.transform.SetParent(_parent, false);
             gameObject.transform.localPosition = _pos.ToFloat().X0Y();
@@ -159,7 +160,7 @@ namespace GMTK.LevelHandling
         {
             Entry.position = WorldEntryPosition;
             Exit.position = WorldExitPosition;
-            m_Fog.localScale = m_Size.ToFloat().X1Y();
+            m_Fog.localScale = m_Size.ToFloat().XY1();
 
             m_Floor.localPosition = new Vector3(StartX + 0.5f, 0, StartY + 0.5f);
 
