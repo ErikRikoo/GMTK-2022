@@ -45,17 +45,26 @@ public class Enemies : Entity
         StartCoroutine(c_MovingDownAnim());
     }
 
-    [SerializeField] private float m_MovingDownSpeed = 1;
+    [Header("DeathAnimation")]
+    [SerializeField] private AnimationCurve m_AnimationCurve;
+
+    [SerializeField] private float m_Duration;
     
     private IEnumerator c_MovingDownAnim()
     {
         Vector3 originalPosition = transform.position;
-        for (float height = 0; height > -5; height -= Time.deltaTime * m_MovingDownSpeed)
+        float inverseDUration = 1 / m_Duration;
+        float height = -5;
+
+        for (float time = 0; time < m_Duration; time+=Time.deltaTime)
         {
-            transform.position = originalPosition + new Vector3(0, height, 0);
+            transform.position = originalPosition +
+                new Vector3(0, m_AnimationCurve.Evaluate(time * inverseDUration) * height, 0);
             yield return null;
         }
-        
+
+        transform.position = originalPosition + new Vector3(0, height, 0);
+
         gameObject.SetActive(false);
     }
 

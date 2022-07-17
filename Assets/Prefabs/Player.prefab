@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health_max: 10
+  health: 0
   damage: 2
   m_BetLauncher: {fileID: 6041612673220057010}
   m_EndOfTurn: {fileID: 11400000, guid: 97a68ac8c43d75b46af7fd8d9d3a3014, type: 2}
@@ -59,6 +60,9 @@ MonoBehaviour:
   m_PAChanged: {fileID: 11400000, guid: 0e97b4c08d35924418d04e57a2f2bfdf, type: 2}
   m_HealthChanged: {fileID: 11400000, guid: 416820ee2c49f974fbdcfc30b28bcde3, type: 2}
   player_holder: {fileID: 11400000, guid: 5b1d9725c86926249977b423f08a5a91, type: 2}
+  speed_player: 1
+  m_Animator: {fileID: 3875336770124856362}
+  m_WalkAnimParam: 1060167814
   m_number_action: 5
   score: 0
 --- !u!1001 &4179368943006327936
@@ -210,5 +214,10 @@ PrefabInstance:
 --- !u!4 &3624640411113380803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4788403172864138269, guid: d4d31e04b43027947bcb1c67f5170d1e, type: 3}
+  m_PrefabInstance: {fileID: 8088073981914761182}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3875336770124856362 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5042178002299321332, guid: d4d31e04b43027947bcb1c67f5170d1e, type: 3}
   m_PrefabInstance: {fileID: 8088073981914761182}
   m_PrefabAsset: {fileID: 0}
