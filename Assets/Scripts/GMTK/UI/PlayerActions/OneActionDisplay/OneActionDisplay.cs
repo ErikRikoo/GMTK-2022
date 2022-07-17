@@ -11,9 +11,11 @@ namespace GMTK.UI.PlayerActions
     {
         [SerializeField] private TextMeshProUGUI m_Type;
         [SerializeField] private Image m_Face;
+        protected APlayerAction m_Action;
 
         public void UpdateDisplay(APlayerAction aPlayerAction, string type, Sprite face)
         {
+            m_Action = aPlayerAction;
             m_Type.text = type;
             m_Face.sprite = face;
         }

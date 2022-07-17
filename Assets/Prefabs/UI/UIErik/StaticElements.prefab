@@ -530,10 +530,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ed8802a86fa41f648bc362cc74a699bd, type: 3}
   - {fileID: 21300000, guid: 32f31ced15eaeb848a26041498adf31c, type: 3}
   - {fileID: 21300000, guid: 7af4330ab865725499b8f47838aaf126, type: 3}
-  m_AttackDisplayPrefab: {fileID: 5206519887780114508, guid: 43d049b7134ccbc4893bc3dbc8766842, type: 3}
-  m_ParryDisplayPrefab: {fileID: 8273325164362430919, guid: d31e0dacd9f3760478e7ecf94ba15f14, type: 3}
-  m_HealDisplayPrefab: {fileID: 2667143664294590259, guid: 95ac14ff857c43949a548c72cb09a1d4, type: 3}
-  m_EscapeDisplayPrefab: {fileID: 911626674753586898, guid: 36f34d38c394d534f97efd8e963ef310, type: 3}
+  m_AttackDisplayPrefab: {fileID: 6402043306927543074, guid: 43d049b7134ccbc4893bc3dbc8766842, type: 3}
+  m_ParryDisplayPrefab: {fileID: 7082235115113929385, guid: d31e0dacd9f3760478e7ecf94ba15f14, type: 3}
+  m_HealDisplayPrefab: {fileID: 3862539540627510365, guid: 95ac14ff857c43949a548c72cb09a1d4, type: 3}
+  m_EscapeDisplayPrefab: {fileID: 2035444057463055804, guid: 36f34d38c394d534f97efd8e963ef310, type: 3}
 --- !u!1 &8426024915444628088
 GameObject:
   m_ObjectHideFlags: 0

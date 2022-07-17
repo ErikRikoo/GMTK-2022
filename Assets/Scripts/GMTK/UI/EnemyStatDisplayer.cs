@@ -2,6 +2,7 @@
 using GMTK.LevelHandling;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace GMTK.UI
 {
@@ -21,6 +22,11 @@ namespace GMTK.UI
         {
             m_ChangeRoom.Register(OnRoomChanged);
             m_EscapeRoom.Register(OnRoomChanged);
+        }
+
+        private void Start()
+        {
+            OnRoomChanged();
         }
 
         public void OnRoomChanged()

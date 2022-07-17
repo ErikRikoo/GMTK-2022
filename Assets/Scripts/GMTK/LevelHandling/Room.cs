@@ -31,9 +31,14 @@ namespace GMTK.LevelHandling
 
        // private bool m_IsLooted;
 
+       [SerializeField] private bool m_Debug;
+       
         private void Awake()
         {
-            room_holder.Room = this;
+            if (m_Debug)
+            {
+                room_holder.Room = this;
+            }
         }
 
         public IEnumerator<ALoot> Loot
