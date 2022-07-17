@@ -112,10 +112,11 @@ namespace GMTK.LevelHandling
             }
 
             for (int x = 0; x < m_Size.x; ++x)
-            {
+            { 
+                // TODO: Refactor to gather similar code
                 if (x == m_EntryPosition)
                 {
-                    // TODO: SpawnDoor
+                    InstantiateElement(m_GenerationInfo.Doors.RandomItem, new Vector2Int(x, 0), m_WallsSouth);
                 }
                 else
                 {
@@ -124,7 +125,7 @@ namespace GMTK.LevelHandling
 
                 if (x == m_ExitPosition)
                 {
-                    // TODO: SpawnDoor
+                    InstantiateElement(m_GenerationInfo.Doors.RandomItem, new Vector2Int(x, 0), m_WallsNorth);
                 }
                 else
                 {
@@ -160,8 +161,6 @@ namespace GMTK.LevelHandling
             m_WallsWest.localPosition = new Vector2(StartX, StartY).X0Y();
             m_WallsEast.localPosition = new Vector2(-StartX, StartY).X0Y();
         }
-        
-
 
         #endregion
         #endif

@@ -18,3 +18,6 @@ MonoBehaviour:
   Tiles:
     m_Data:
     - {fileID: 1528495741573197801, guid: e707724984a44944da0f1dda9f3b6f51, type: 3}
+  Doors:
+    m_Data:
+    - {fileID: 8744454177001660876, guid: 2b14deadce4da174f81ffcce1e475e5d, type: 3}

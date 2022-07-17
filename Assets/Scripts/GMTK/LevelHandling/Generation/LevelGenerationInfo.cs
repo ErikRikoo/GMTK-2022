@@ -8,6 +8,7 @@ namespace GMTK.LevelHandling.Generation
     {
         [SerializeField] public RandomArray<GameObject> Walls;
         [SerializeField] public RandomArray<GameObject> Tiles;
+        [SerializeField] public RandomArray<GameObject> Doors;
         
     }
 }
