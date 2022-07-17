@@ -47,3 +47,5 @@ MonoBehaviour:
   m_DeltaBetweenRooms: {x: 0, y: 0, z: 1}
   m_DungeonData: {fileID: 11400000, guid: 56e99814a3987e6459b355088c8556b8, type: 2}
   m_CurrentRoom: {fileID: 11400000, guid: ac026cb511c6fbb459b35841ead7bd2d, type: 2}
+  ChangeRoom: {fileID: 11400000, guid: 3dadc4846a255fe45b1bc5355040b90d, type: 2}
+  playerEscape: {fileID: 11400000, guid: 7e249166d07c75842b4d3f8d9c773715, type: 2}
