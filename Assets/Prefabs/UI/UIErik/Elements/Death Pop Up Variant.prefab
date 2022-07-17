@@ -15,6 +15,10 @@ PrefabInstance:
 
         v = Restart'
       objectReference: {fileID: 0}
+    - target: {fileID: 4972954916622614141, guid: 4f6c9b9b68c035a4ba053b84c409884c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7781374625824406651, guid: 4f6c9b9b68c035a4ba053b84c409884c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -101,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7781374625824406652, guid: 4f6c9b9b68c035a4ba053b84c409884c, type: 3}
       propertyPath: m_Name
-      value: Death Pop Up
+      value: Death Pop Up Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f6c9b9b68c035a4ba053b84c409884c, type: 3}

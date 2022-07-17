@@ -213,6 +213,7 @@ public class Player : Entity
     
     public int m_number_action;
     public int score;
+    public int var_heal;
 
     private List<APlayerAction> m_Actions = new();
     public void AddAction(APlayerAction action)
