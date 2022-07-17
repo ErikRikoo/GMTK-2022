@@ -10,6 +10,8 @@
             get;
         }
 
+        public abstract string DisplayType { get; }
+
         public abstract bool IsFaceValid(int _face);
     }
 }

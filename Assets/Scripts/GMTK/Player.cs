@@ -19,6 +19,8 @@ public class Player : Entity
     [SerializeField] private VoidEvent m_ExecuteActions;
     [SerializeField] private VoidEvent playerIsDead;
     [SerializeField] private VoidEvent playerEscape;
+    [SerializeField] private VoidEvent m_ActionConsumed;
+    
 
     [SerializeField] private IntEvent m_DamageChanged;
     [SerializeField] private IntEvent m_PAChanged;
@@ -78,8 +80,8 @@ public class Player : Entity
             m_BetLauncher.LaunchBet((face) =>
             {            
                 // TODO: Display and say which action has been executed for player and UI
-                Debug.Log($"{action.GetType().Name} - {action.BetType.GetType().Name} - {action.BetType.DiceFace}");
                 action.ExecuteIfPossible(face, this);
+                m_ActionConsumed.Raise();
                 ActionsExecutor.MoveNext();
             });
             yield return null;

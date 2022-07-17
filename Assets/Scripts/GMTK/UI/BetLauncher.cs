@@ -23,7 +23,6 @@ namespace GMTK.UI
         
         public void LaunchBet(Action<int> OnBetFinished)
         {
-            Debug.Log("Enter bet");
             StartCoroutine(c_Bet(OnBetFinished));
         }
 
