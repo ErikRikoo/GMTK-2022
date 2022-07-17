@@ -237,6 +237,7 @@ RectTransform:
   - {fileID: 1920113568687661850}
   - {fileID: 274586884129080449}
   - {fileID: 8543499980122964601}
+  - {fileID: 7462980494735692085}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -365,6 +366,86 @@ MonoBehaviour:
   m_ButtonActions: {fileID: 2931428902673421573}
   m_BetPopUp: {fileID: 4315221408474809754}
   m_ActionDisplayer: {fileID: 216425833617536693}
+--- !u!1 &6489358075536485383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7462980494735692085}
+  - component: {fileID: 461583968414478067}
+  - component: {fileID: 2787793977014987343}
+  m_Layer: 0
+  m_Name: EnemiesStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7462980494735692085
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489358075536485383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4514500806412971513}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.2, y: 0}
+  m_AnchorMax: {x: 0.8, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 167.07}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &461583968414478067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489358075536485383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 7
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &2787793977014987343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489358075536485383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02dbbdb4b5648edaea38e063c361112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ChangeRoom: {fileID: 11400000, guid: 3dadc4846a255fe45b1bc5355040b90d, type: 2}
+  m_EscapeRoom: {fileID: 11400000, guid: 7e249166d07c75842b4d3f8d9c773715, type: 2}
+  m_CurrentRoom: {fileID: 11400000, guid: ac026cb511c6fbb459b35841ead7bd2d, type: 2}
+  m_EnemyStatPrefab: {fileID: -8784161168397225432, guid: be08761cc89c4ac4ba61ac43bad772c2, type: 3}
 --- !u!1 &7535359656276889799
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,10 +530,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ed8802a86fa41f648bc362cc74a699bd, type: 3}
   - {fileID: 21300000, guid: 32f31ced15eaeb848a26041498adf31c, type: 3}
   - {fileID: 21300000, guid: 7af4330ab865725499b8f47838aaf126, type: 3}
-  m_AttackDisplayPrefab: {fileID: 5206519887780114508, guid: 43d049b7134ccbc4893bc3dbc8766842, type: 3}
-  m_ParryDisplayPrefab: {fileID: 8273325164362430919, guid: d31e0dacd9f3760478e7ecf94ba15f14, type: 3}
-  m_HealDisplayPrefab: {fileID: 2667143664294590259, guid: 95ac14ff857c43949a548c72cb09a1d4, type: 3}
-  m_EscapeDisplayPrefab: {fileID: 911626674753586898, guid: 36f34d38c394d534f97efd8e963ef310, type: 3}
+  m_AttackDisplayPrefab: {fileID: 6402043306927543074, guid: 43d049b7134ccbc4893bc3dbc8766842, type: 3}
+  m_ParryDisplayPrefab: {fileID: 7082235115113929385, guid: d31e0dacd9f3760478e7ecf94ba15f14, type: 3}
+  m_HealDisplayPrefab: {fileID: 3862539540627510365, guid: 95ac14ff857c43949a548c72cb09a1d4, type: 3}
+  m_EscapeDisplayPrefab: {fileID: 2035444057463055804, guid: 36f34d38c394d534f97efd8e963ef310, type: 3}
 --- !u!1 &8426024915444628088
 GameObject:
   m_ObjectHideFlags: 0
