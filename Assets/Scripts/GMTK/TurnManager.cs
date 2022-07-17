@@ -14,6 +14,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private VoidEvent playerEscape;
     [SerializeField] private VoidEvent endPlayerTurn_s;
     [SerializeField] private VoidEvent goLoop;
+    [SerializeField] private VoidEvent end_room_spawn;
 
     private bool playerEscaped = false;
 
@@ -28,9 +29,16 @@ public class TurnManager : MonoBehaviour
     {
         playerEscape.Register(escape);
         endPlayerTurn_s.Register(EndTurnPlayer);
-        goLoop.Register(test);
+        goLoop.Register(GoTurn);
+        end_room_spawn.Register(InANewRoom);
         //coroutine = Turn();
-        test();
+        InANewRoom();
+    }
+
+    private void InANewRoom()
+    {
+        player_holder.player.transform.position = current_room.Room.Entry.position;
+        GoTurn();
     }
 
     private IEnumerator Turn()
@@ -76,9 +84,8 @@ public class TurnManager : MonoBehaviour
 
     }
 
-    private void test()
+    private void GoTurn()
     {
-        StopAllCoroutines();
         StartCoroutine(coroutine=Turn());
     }
 
@@ -113,22 +120,23 @@ public class TurnManager : MonoBehaviour
             player_holder.player.number_action += current_room.Room.Enemies.Count();
             
             //deplacement jusqu'a la sortie
-            move_player = player_holder.player.movement(current_room.Room.Exit);
+            move_player = player_holder.player.movement(current_room.Room.Exit,(() => ChangeRoom.Raise()));
             StartCoroutine(move_player);//deplacement du player 
             Debug.Log("player est à la sortie");
             
             //génére une nouvelle salle
-            ChangeRoom.Raise();
+            
+           
 
         }
         else if(playerEscaped) //le joueur à fuit
         {
             Debug.Log("C'est la fouite");
-            move_player = player_holder.player.movement(current_room.Room.Entry);
+            move_player = player_holder.player.movement(current_room.Room.Entry,(() => ChangeRoom.Raise()));
             StartCoroutine(move_player);//deplacement du player 
             
             Debug.Log("player est à l'entrée");
-            ChangeRoom.Raise();
+            
         }
     }
 
