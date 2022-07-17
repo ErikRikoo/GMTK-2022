@@ -260,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health_max: 3
   damage: 1
+  m_HealthBar: {fileID: 7523911093616500502}
   player_holder: {fileID: 11400000, guid: 5b1d9725c86926249977b423f08a5a91, type: 2}
 --- !u!65 &6709528948100962497
 BoxCollider:
