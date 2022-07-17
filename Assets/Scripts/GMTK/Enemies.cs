@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using GMTK;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +13,18 @@ public class Enemies : Entity
     [SerializeField] private Player_holder player_holder;
 
 
+    [SerializeField] private Animator m_Animator;
+
+    [AnimatorParam("m_Animator")]
+    [SerializeField] private int m_TakeDamageParam;
+    
+    
+    [AnimatorParam("m_Animator")]
+    [SerializeField] private int m_AttackParam;
+    
     private void Start()
     {
+        
         m_HealthBar.minValue = 0;
         m_HealthBar.maxValue = health_max;
         m_HealthBar.value = health;
@@ -32,6 +43,10 @@ public class Enemies : Entity
             health = 0;
             Debug.Log("Je suis moooooooooooooooort");
             OnDeath();
+        }
+        else
+        {
+            m_Animator.SetTrigger(m_TakeDamageParam);
         }
 
         
@@ -71,5 +86,6 @@ public class Enemies : Entity
     public void attack(Player player)
     {
         player.TakeDamage(damage);
+        m_Animator.SetTrigger(m_AttackParam);
     }
 }

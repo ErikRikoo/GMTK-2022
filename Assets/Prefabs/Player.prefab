@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health_max: 10
-  health: 0
   damage: 2
   m_BetLauncher: {fileID: 6041612673220057010}
   m_EndOfTurn: {fileID: 11400000, guid: 97a68ac8c43d75b46af7fd8d9d3a3014, type: 2}
@@ -63,8 +62,12 @@ MonoBehaviour:
   speed_player: 1
   m_Animator: {fileID: 3875336770124856362}
   m_WalkAnimParam: 1060167814
+  m_AttackAnimParam: 1203776827
+  m_IsDeadParam: -316323548
+  m_TakeDamageParam: 298341484
   m_number_action: 5
   score: 0
+  var_heal: 0
 --- !u!1001 &4179368943006327936
 PrefabInstance:
   m_ObjectHideFlags: 0

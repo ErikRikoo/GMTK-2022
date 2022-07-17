@@ -39,7 +39,16 @@ public class Player : Entity
 
     [AnimatorParam("m_Animator")]
     [SerializeField] private int m_WalkAnimParam;
+    
+    [AnimatorParam("m_Animator")]
+    [SerializeField] private int m_AttackAnimParam;
 
+    [AnimatorParam("m_Animator")]
+    [SerializeField] private int m_IsDeadParam;
+    
+    [AnimatorParam("m_Animator")]
+    [SerializeField] private int m_TakeDamageParam;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -126,7 +135,11 @@ public class Player : Entity
                 m_ActionConsumed.Raise();
                 ActionsExecutor.MoveNext();
             });
-            yield return null;
+            yield return new WaitForSeconds(action switch
+            {
+                AttackAction _ => 0.5f,
+                _ => 0.2f
+            });
             ++i;
         }
         m_Actions.Clear();
@@ -151,6 +164,11 @@ public class Player : Entity
         {
             Health = 0;
             playerIsDead.Raise();
+            m_Animator.SetTrigger(m_IsDeadParam);
+        }
+        else
+        {
+            m_Animator.SetTrigger(m_TakeDamageParam);
         }
             
     }
@@ -159,6 +177,7 @@ public class Player : Entity
     {
         Debug.Log("le player attaque");
         enemies.TakeDamage(damage);
+        m_Animator.SetTrigger(m_AttackAnimParam);
     }
 
     public void Parry()
