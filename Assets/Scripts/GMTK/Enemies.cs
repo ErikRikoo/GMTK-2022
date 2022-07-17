@@ -16,6 +16,7 @@ public class Enemies : Entity
     {
         m_HealthBar.minValue = 0;
         m_HealthBar.maxValue = health_max;
+        m_HealthBar.value = health;
     }
 
     public override void Play()
