@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using GMTK;
@@ -66,7 +67,7 @@ public class Player : Entity
         m_PlayerTurn.Raise();
     }
 
-    public IEnumerator movement(Transform pointToRaise)
+    public IEnumerator movement(Transform pointToRaise,Action finMovement)
     {
         while (transform.position != pointToRaise.position)
         {
@@ -78,6 +79,8 @@ public class Player : Entity
                 transform.localPosition = Vector3.zero;
                 //m_Animator.SetFloat("Movement", 0.5f); pour ajouter l'animation
                 Debug.Log("end of player deplacement ");
+                finMovement();
+                yield break;
             }
             else
             {
@@ -86,6 +89,8 @@ public class Player : Entity
 
             yield return null;
         }
+
+        
     }
 
     private IEnumerator ActionsExecutor;

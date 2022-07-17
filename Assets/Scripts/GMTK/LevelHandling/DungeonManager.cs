@@ -17,6 +17,8 @@ namespace GMTK.LevelHandling
         [SerializeField] private RoomHolder m_CurrentRoom;
         [SerializeField] private VoidEvent ChangeRoom ;
         [SerializeField] private VoidEvent playerEscape;
+        [SerializeField] private VoidEvent end_room_spawn;
+        
 
         private int m_CurrentRoomIndex = 0;
 
@@ -30,9 +32,11 @@ namespace GMTK.LevelHandling
                 {
                     Room r = SpawnRoomAt(m_CurrentRoomIndex);
                     m_Rooms.Add(r);
+                    m_CurrentRoom.Room = m_Rooms.Last();
+                    end_room_spawn.Raise();
                 }
-
                 m_CurrentRoom.Room = m_Rooms.Last();
+                
             }
         }
 

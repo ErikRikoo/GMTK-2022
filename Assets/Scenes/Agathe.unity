@@ -4331,6 +4331,7 @@ MonoBehaviour:
   playerEscape: {fileID: 11400000, guid: 7e249166d07c75842b4d3f8d9c773715, type: 2}
   endPlayerTurn_s: {fileID: 11400000, guid: 97a68ac8c43d75b46af7fd8d9d3a3014, type: 2}
   goLoop: {fileID: 11400000, guid: 8637682bbc025fd4dbc4a400e5ba6cab, type: 2}
+  end_room_spawn: {fileID: 11400000, guid: 48f2971eb0f7c0f4fbea725d0fb8e26e, type: 2}
 --- !u!4 &944427740
 Transform:
   m_ObjectHideFlags: 0
@@ -8405,6 +8406,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5908689484349472878, guid: a833dbe64abe9404592967079ea2f696, type: 3}
+      propertyPath: end_room_spawn
+      value: 
+      objectReference: {fileID: 11400000, guid: 48f2971eb0f7c0f4fbea725d0fb8e26e, type: 2}
     - target: {fileID: 5908689484349472879, guid: a833dbe64abe9404592967079ea2f696, type: 3}
       propertyPath: m_Name
       value: DungeonHandling
