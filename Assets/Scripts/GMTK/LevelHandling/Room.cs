@@ -55,7 +55,7 @@ namespace GMTK.LevelHandling
             }
         }
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         #region Unity Editor Generation
 
         [HorizontalLine(color: EColor.Red, order = 0)]
@@ -93,11 +93,11 @@ namespace GMTK.LevelHandling
         }
 
         [SerializeField] private LevelGenerationInfo m_GenerationInfo;
-        [SerializeField] private Transform m_Floor;
-        [SerializeField] private Transform m_WallsSouth;
-        [SerializeField] private Transform m_WallsNorth;
-        [SerializeField] private Transform m_WallsWest;
-        [SerializeField] private Transform m_WallsEast;
+        [SerializeField] public Transform m_Floor;
+        [SerializeField] public Transform m_WallsSouth;
+        [SerializeField] public Transform m_WallsNorth;
+        [SerializeField] public Transform m_WallsWest;
+        [SerializeField] public Transform m_WallsEast;
 
         [Sirenix.OdinInspector.Button]
         public void Generate()
@@ -168,6 +168,6 @@ namespace GMTK.LevelHandling
         }
 
         #endregion
-        #endif
+        //#endif
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GMTK.Utilities.Extensions;
 using Sirenix.OdinInspector;
 using UnityAtoms.BaseAtoms;
 using UnityEditorInternal;
@@ -25,13 +27,16 @@ namespace GMTK.LevelHandling
             get => m_CurrentRoomIndex;
             set
             {
+                UndisplayRoomAt(m_CurrentRoomIndex);
                 m_CurrentRoomIndex = value;
+
                 if (m_CurrentRoomIndex >= m_Rooms.Count)
                 {
                     Room r = SpawnRoomAt(m_CurrentRoomIndex);
                     m_Rooms.Add(r);
                 }
 
+                DisplayRoomAt(value);
                 m_CurrentRoom.Room = m_Rooms.Last();
             }
         }
@@ -88,6 +93,64 @@ namespace GMTK.LevelHandling
         public void PreviousRoom()
         {
             --CurrentRoomIndex;
+        }
+
+        [Header("Animation")]
+        [SerializeField] private AnimationCurve m_AnimationCurve;
+
+        [SerializeField] private float m_Duration;
+        
+        [SerializeField] private float m_HeightDifference;
+        [SerializeField] private float m_DelayBetweenRows;
+        
+        
+        private void DisplayRoomAt(int value)
+        {
+            AnimateRoom(m_Rooms[value], -m_HeightDifference, 0);
+        }
+
+        private void UndisplayRoomAt(int currentRoomIndex)
+        {
+            AnimateRoom(m_Rooms[currentRoomIndex], 0, -m_HeightDifference);
+
+        }
+
+        private void AnimateRoom(Room room, float startHeightDelta, float endHeightDelta)
+        {
+            AnimateChild(room, room.m_WallsSouth, startHeightDelta, endHeightDelta);
+            AnimateChild(room, room.m_WallsEast, startHeightDelta, endHeightDelta);
+            AnimateChild(room, room.m_WallsNorth, startHeightDelta, endHeightDelta);
+            AnimateChild(room, room.m_WallsWest, startHeightDelta, endHeightDelta);
+            AnimateChild(room, room.m_Floor, startHeightDelta, endHeightDelta);
+        }
+
+        private void AnimateChild(Room room, Transform transformToAnimate, float startHeightDelta, float endHeightDelta)
+        {
+            Vector2 center = room.transform.position.XZ();
+            Debug.Log(room.transform.position);
+            for (int i = 0; i < transformToAnimate.childCount; i++)
+            {
+                var child = transformToAnimate.GetChild(i);
+                StartCoroutine(c_AnimateObject(child, center, startHeightDelta, endHeightDelta));
+            }
+        }
+
+        private IEnumerator c_AnimateObject(Transform child, Vector2 center, float startHeightDelta, float endHeightDelta)
+        {
+            Vector3 start = child.position + new Vector3(0, startHeightDelta, 0);
+            Vector3 target = child.position + new Vector3(0, endHeightDelta, 0);;
+            float delayToWait = Vector2.Distance(center, child.position.XZ()) * m_DelayBetweenRows;
+            yield return new WaitForSeconds(delayToWait);
+            float inverseDuration = 1 / m_Duration;
+            for(float time = 0; time < m_Duration; time += Time.deltaTime)
+            {
+                float ratio = time * inverseDuration;
+                child.position = Vector3.LerpUnclamped(start, target, m_AnimationCurve.Evaluate(ratio));
+                
+                yield return null;
+            }
+
+            child.position = target;
         }
     }
 }
