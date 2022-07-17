@@ -363,7 +363,7 @@ MonoBehaviour:
   m_ExecuteActions: {fileID: 11400000, guid: a235cb05ea5c087479ee677ad10316a3, type: 2}
   m_CurrentPlayer: {fileID: 11400000, guid: 5b1d9725c86926249977b423f08a5a91, type: 2}
   m_EndTurnButton: {fileID: 5061283147057154282}
-  m_ButtonActions: {fileID: 2931428902673421573}
+  m_ButtonActions: {fileID: 4350041288710156375}
   m_BetPopUp: {fileID: 4315221408474809754}
   m_ActionDisplayer: {fileID: 216425833617536693}
 --- !u!1 &6489358075536485383
@@ -1352,6 +1352,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerActionsDisplay: {fileID: 5665469491379554004}
+--- !u!114 &4350041288710156375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1825844767045156216, guid: 6cc263e0d013af14782932f821981775, type: 3}
+  m_PrefabInstance: {fileID: 2668602292737051951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192223437923284112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa795878aae45df9b7da52924273f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6192223437923284112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8135741516076382655, guid: 6cc263e0d013af14782932f821981775, type: 3}
@@ -1364,7 +1375,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6192223437923284112}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a0e0d6ea7484620951e3aec36fdec9b, type: 3}
   m_Name: 
