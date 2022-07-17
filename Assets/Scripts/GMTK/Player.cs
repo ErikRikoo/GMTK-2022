@@ -39,12 +39,17 @@ public class Player : Entity
 
     [AnimatorParam("m_Animator")]
     [SerializeField] private int m_WalkAnimParam;
-    
-    
+
+    protected override void Awake()
+    {
+        base.Awake();
+        player_holder.player = this;
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        player_holder.player = this;
         m_PAChanged.Raise(m_number_action);
         m_DamageChanged.Raise(damage);
         m_HealthChanged.Raise( new IntPair()

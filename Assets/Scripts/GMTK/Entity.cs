@@ -10,7 +10,7 @@ public abstract class Entity : MonoBehaviour
     public abstract void Play();
     public abstract void TakeDamage(int damage_taken);
 
-    void Awake()
+    protected virtual void Awake()
     {
         health = health_max;
     }

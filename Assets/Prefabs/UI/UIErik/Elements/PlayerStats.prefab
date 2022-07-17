@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cedadf0547426db90318f73cf2e909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Format: Damage {0}
+  m_Format: '{0}'
   m_Event: {fileID: 11400000, guid: 3878998f831ffc2429e70dd60909b6f3, type: 2}
 --- !u!224 &7951993523208720779 stripped
 RectTransform:
@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cedadf0547426db90318f73cf2e909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Format: N actions {0}
+  m_Format: '{0}'
   m_Event: {fileID: 11400000, guid: 0e97b4c08d35924418d04e57a2f2bfdf, type: 2}
 --- !u!224 &8750078423206712140 stripped
 RectTransform:

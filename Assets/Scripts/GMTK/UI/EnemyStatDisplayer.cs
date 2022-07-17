@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using GMTK.LevelHandling;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
@@ -26,6 +28,12 @@ namespace GMTK.UI
 
         private void Start()
         {
+            StartCoroutine(c_Wait());
+        }
+
+        private IEnumerator c_Wait()
+        {
+            yield return new WaitForSeconds(0.5f);
             OnRoomChanged();
         }
 
