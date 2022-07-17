@@ -49,6 +49,11 @@ namespace GMTK.Utilities.Extensions
         {
             return new Vector2(_instance.x,  _instance.z);
         }
+        
+        public static Vector2 XY(this Vector3 _instance)
+        {
+            return new Vector2(_instance.x,  _instance.y);
+        }
 
         public static Vector2Int ToInt(this Vector2 _instance)
         {

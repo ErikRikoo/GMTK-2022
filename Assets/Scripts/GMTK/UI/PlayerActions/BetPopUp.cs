@@ -105,21 +105,22 @@ namespace GMTK.UI.PlayerActions
 
         public override void Cancel()
         {
-            ResetPopUp();
             base.Cancel();
+            ResetPopUp();
         }
 
         public override void Validate()
         {
-            ResetPopUp();
             base.Validate();
+            ResetPopUp();
         }
         
         private void ResetPopUp()
         {
             ResetTypeButtons();
-            ResetTypeButtons();
+            SetSecondSpaceUIState(false);
             m_BetType = null;
+            m_CurrentlySelectedFace = -1;
         }
     }
 }

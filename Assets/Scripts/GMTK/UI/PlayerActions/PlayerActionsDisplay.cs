@@ -99,7 +99,10 @@ namespace GMTK.UI.PlayerActions
             
             CurrentPlayer.AddAction(action);
             var text = Instantiate(m_PrefabText, m_DebugPlace);
-            text.text = $"{action.GetType().Name} - {action.BetType.GetType().Name} - {action.BetType.DiceFace}";
+            // Debug.Log(text);
+            // Debug.Log(action);
+            // Debug.Log(action.BetType);
+            text.text = $"{action.GetType().Name} - {action.BetType.GetType().Name} - {action.BetType.DiceFace} - {action}";
         }
         
         private void OnEndOfTurn()
