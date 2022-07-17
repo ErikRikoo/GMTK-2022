@@ -19,6 +19,11 @@ namespace GMTK.Utilities.Extensions
             return new Vector3(_instance.x, 0, _instance.y);
         }
         
+        public static Vector3 XY1(this Vector2 _instance)
+        {
+            return new Vector3(_instance.x, _instance.y, 1);
+        }
+        
         public static Vector3 X00(this Vector3 _instance)
         {
             return new Vector3(_instance.x, 0, 0);

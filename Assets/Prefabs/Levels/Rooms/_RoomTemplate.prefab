@@ -349,6 +349,7 @@ MonoBehaviour:
   m_WallsNorth: {fileID: 772914879}
   m_WallsWest: {fileID: 1569530978}
   m_WallsEast: {fileID: 1268708685}
+  m_EnemiesHolder: {fileID: 71891681}
   m_Fog: {fileID: 3523007395120523834}
 --- !u!114 &490610129
 MonoBehaviour:
