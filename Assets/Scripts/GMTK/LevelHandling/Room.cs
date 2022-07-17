@@ -99,6 +99,7 @@ namespace GMTK.LevelHandling
         [SerializeField] private Transform m_WallsNorth;
         [SerializeField] private Transform m_WallsWest;
         [SerializeField] private Transform m_WallsEast;
+        [SerializeField] private Transform m_Fog;
 
         [Sirenix.OdinInspector.Button]
         public void Generate()
@@ -158,6 +159,7 @@ namespace GMTK.LevelHandling
         {
             Entry.position = WorldEntryPosition;
             Exit.position = WorldExitPosition;
+            m_Fog.localScale = m_Size.ToFloat().X1Y();
 
             m_Floor.localPosition = new Vector3(StartX + 0.5f, 0, StartY + 0.5f);
 
