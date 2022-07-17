@@ -28,11 +28,35 @@ public class Enemies : Entity
     {
         health = health - damage_taken;
         if (health < 0)
+        {
             health = 0;
+            Debug.Log("Je suis moooooooooooooooort");
+            OnDeath();
+        }
 
+        
         // TODO: Use a better way to do that
         // Like having setter in entity that has a virtual method OnHealthChanged
         m_HealthBar.value = health;
+    }
+
+    private void OnDeath()
+    {
+        StartCoroutine(c_MovingDownAnim());
+    }
+
+    [SerializeField] private float m_MovingDownSpeed = 1;
+    
+    private IEnumerator c_MovingDownAnim()
+    {
+        Vector3 originalPosition = transform.position;
+        for (float height = 0; height > -5; height -= Time.deltaTime * m_MovingDownSpeed)
+        {
+            transform.position = originalPosition + new Vector3(0, height, 0);
+            yield return null;
+        }
+        
+        gameObject.SetActive(false);
     }
 
     public void attack(Player player)
