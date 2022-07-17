@@ -133,7 +133,7 @@ Animator:
   m_GameObject: {fileID: 444755951248253636}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 345e2fc4bd32c87418974c162b0600f4, type: 2}
+  m_Controller: {fileID: 9100000, guid: d19e0cd97d4162a49ba28b03b1b12737, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -240,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 674850345885016397, guid: 72051eca39deb934d85d4eb4eb685856, type: 3}
       propertyPath: m_fontSize
-      value: 24.45
+      value: 20.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72051eca39deb934d85d4eb4eb685856, type: 3}

@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 444755951248253658, guid: 65e17a7459e003840bef8ba4267b16da, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 345e2fc4bd32c87418974c162b0600f4, type: 2}
     - target: {fileID: 444755951645703073, guid: 65e17a7459e003840bef8ba4267b16da, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -29,25 +29,31 @@ namespace GMTK.UI.PlayerActions
 
             m_DiceFaces[selected].interactable = false;
             
-            // for (var i = 0; i < m_DiceFacesAnimator.Length; i++)
-            // {
-            //     Animator anim = m_DiceFacesAnimator[i];
-            //     string triggerName;
-            //     if (i == selected)
-            //     {
-            //         triggerName = "SelectedDice";
-            //     }
-            //     if (betType.IsFaceValid(i + 1))
-            //     {
-            //         triggerName = "HighlightedDice";
-            //     }
-            //     else
-            //     {
-            //         triggerName = "Normal";
-            //     }
-            //     
-            //     anim.SetTrigger(triggerName);
-            // }
+            for (var i = 0; i < m_DiceFacesAnimator.Length; i++)
+            {
+                Animator anim = m_DiceFacesAnimator[i];
+                bool faceValid = betType.IsFaceValid(i + 1);
+                anim.SetBool("HighlightedDice", false);
+                anim.SetBool("SelectedDice", false);
+                if (i == selected)
+                {
+                    anim.SetBool("SelectedDice", true);
+
+                    if (faceValid)
+                    {
+                        anim.SetBool("HighlightedDice", true);
+                    }
+                }
+                else
+                {
+                    anim.SetBool("SelectedDice", false);
+
+                    if (faceValid)
+                    {
+                        anim.SetBool("HighlightedDice", true);
+                    }
+                }
+            }
         }
     }
 }

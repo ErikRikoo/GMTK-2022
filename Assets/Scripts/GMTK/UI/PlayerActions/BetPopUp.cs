@@ -47,7 +47,7 @@ namespace GMTK.UI.PlayerActions
                 int index = i;
                 m_DiceFacesDisplay[i].onClick.AddListener(() =>
                 {
-                    m_CurrentlySelectedFace = index + 1;
+                    m_CurrentlySelectedFace = index;
                     UpdateBetDiceFace();
                 });
             }
@@ -82,6 +82,7 @@ namespace GMTK.UI.PlayerActions
         {
             m_DiceFacesDisplay.State = state;
             m_RiskDisplay.gameObject.SetActive(state);
+            m_RiskDisplay.text = "";
         }
 
         private void UpdateBetDiceFace()
@@ -94,7 +95,7 @@ namespace GMTK.UI.PlayerActions
             {
                 if (m_BetType != null)
                 {
-                    m_BetType.DiceFace = m_CurrentlySelectedFace;
+                    m_BetType.DiceFace = m_CurrentlySelectedFace + 1;
                     m_DiceFacesDisplay.UpdateBetDiceFace(m_CurrentlySelectedFace, m_BetType);
 
                     m_RiskDisplay.text = String.Format(m_RiskFormat, (int)(m_BetType.Risk * 100));
