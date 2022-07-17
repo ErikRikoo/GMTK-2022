@@ -29,6 +29,8 @@ public class Player : Entity
     [Header("Variables")]
     [SerializeField] private Player_holder player_holder;
 
+    [SerializeField] private float speed_player = 1;
+
     
     
     // Start is called before the first frame update
@@ -62,6 +64,23 @@ public class Player : Entity
     {
         number_parry = 0;
         m_PlayerTurn.Raise();
+    }
+
+    public void movement(Transform pointToRaise)
+    {
+        Vector3 movement_object = (pointToRaise.position-transform.position) *Time.deltaTime * speed_player;
+        Debug.Log("move player =  " + movement_object);
+        if (Vector3.Distance(pointToRaise.position, transform.position) < 0.3)
+        {
+            transform.parent = pointToRaise;
+            transform.localPosition = Vector3.zero;
+            //m_Animator.SetFloat("Movement", 0.5f); pour ajouter l'animation
+            Debug.Log("end of player deplacement ");
+        }
+        else
+        {
+            transform.Translate(movement_object,Space.World);
+        }
     }
 
     private IEnumerator ActionsExecutor;
@@ -114,11 +133,7 @@ public class Player : Entity
     
     public void Attack(Enemies enemies)
     {
-        //Debug.Log("sante de l'ennemie "+enemies.health);
-        //Debug.Log("joueur attaque "+enemies.name);
-        //Debug.Log(enemies.name);
         enemies.TakeDamage(damage);
-        //Debug.Log("sante de l'ennemie "+enemies.health);
     }
 
     public void Parry()

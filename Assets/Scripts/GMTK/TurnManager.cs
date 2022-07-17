@@ -77,6 +77,13 @@ public class TurnManager : MonoBehaviour
             //donne points d'action
             player_holder.player.number_action += current_room.Room.Enemies.Count();
             
+            //deplacement jusqu'a la sortie
+            while (player_holder.player.transform.position != current_room.Room.Exit.position)
+            {
+                player_holder.player.movement(current_room.Room.Exit);
+            }
+            Debug.Log("player est à la sortie");
+            
             //génére une nouvelle salle
             ChangeRoom.Raise();
 
@@ -84,6 +91,12 @@ public class TurnManager : MonoBehaviour
         else if(playerEscaped) //le joueur à fuit
         {
             Debug.Log("C'est la fouite");
+            while (player_holder.player.transform.position != current_room.Room.Entry.position)
+            {
+                player_holder.player.movement(current_room.Room.Entry);
+                
+            }
+            Debug.Log("player est à l'entrée");
             ChangeRoom.Raise();
         }
     }
