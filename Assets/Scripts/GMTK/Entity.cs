@@ -22,6 +22,6 @@ public abstract class Entity : MonoBehaviour
         return false;
     }
     
-    protected int health;
+    public int health;
     public int damage;
 }

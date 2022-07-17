@@ -46,7 +46,7 @@ public class Player : Entity
         });
         m_ExecuteActions.Register(OnExecuteActions);
 
-        StartCoroutine(c_Test());
+       // StartCoroutine(c_Test());
     }
 
     private IEnumerator c_Test()
@@ -66,20 +66,25 @@ public class Player : Entity
         m_PlayerTurn.Raise();
     }
 
-    public void movement(Transform pointToRaise)
+    public IEnumerator movement(Transform pointToRaise)
     {
-        Vector3 movement_object = (pointToRaise.position-transform.position) *Time.deltaTime * speed_player;
-        Debug.Log("move player =  " + movement_object);
-        if (Vector3.Distance(pointToRaise.position, transform.position) < 0.3)
+        while (transform.position != pointToRaise.position)
         {
-            transform.parent = pointToRaise;
-            transform.localPosition = Vector3.zero;
-            //m_Animator.SetFloat("Movement", 0.5f); pour ajouter l'animation
-            Debug.Log("end of player deplacement ");
-        }
-        else
-        {
-            transform.Translate(movement_object,Space.World);
+            Vector3 movement_object = (pointToRaise.position - transform.position) * Time.deltaTime * speed_player;
+            Debug.Log("move player =  " + movement_object);
+            if (Vector3.Distance(pointToRaise.position, transform.position) < 0.3)
+            {
+                transform.parent = pointToRaise;
+                transform.localPosition = Vector3.zero;
+                //m_Animator.SetFloat("Movement", 0.5f); pour ajouter l'animation
+                Debug.Log("end of player deplacement ");
+            }
+            else
+            {
+                transform.Translate(movement_object, Space.World);
+            }
+
+            yield return null;
         }
     }
 
@@ -108,6 +113,7 @@ public class Player : Entity
         }
         m_Actions.Clear();
         m_EndOfTurn.Raise();
+        Debug.Log("emission du signal end turn");
     }
 
     public override void TakeDamage(int damage_taken)
@@ -133,6 +139,7 @@ public class Player : Entity
     
     public void Attack(Enemies enemies)
     {
+        Debug.Log("le player attaque");
         enemies.TakeDamage(damage);
     }
 

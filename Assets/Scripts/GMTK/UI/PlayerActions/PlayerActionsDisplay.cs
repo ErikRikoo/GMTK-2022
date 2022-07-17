@@ -59,6 +59,7 @@ namespace GMTK.UI.PlayerActions
 
         private void OnStartPlayerTurn()
         {
+            Debug.Log("LAAAAAAAAA");
             if (!HasPlayerActionPoints)
             {
                 // TODO: Can't play

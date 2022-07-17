@@ -53,7 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5455447894936554045, guid: a6bf82500a50a27459fd101e4c5ef2c7, type: 3}
       propertyPath: m_Name
-      value: momie
+      value: momie Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571598209536882710, guid: a6bf82500a50a27459fd101e4c5ef2c7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571598209536882710, guid: a6bf82500a50a27459fd101e4c5ef2c7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6bf82500a50a27459fd101e4c5ef2c7, type: 3}
