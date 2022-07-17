@@ -118,6 +118,7 @@ namespace GMTK.UI.PlayerActions
         {
             ResetTypeButtons();
             ResetTypeButtons();
+            m_BetType = null;
         }
     }
 }
