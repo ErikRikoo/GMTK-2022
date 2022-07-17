@@ -27,16 +27,24 @@ namespace GMTK.LevelHandling
             get => m_CurrentRoomIndex;
             set
             {
-                m_CurrentRoomIndex = value;
-                if (m_CurrentRoomIndex >= m_Rooms.Count)
+                if (value == m_DungeonData.Count)
+                    Debug.Log("You win!");
+                else
                 {
-                    Room r = SpawnRoomAt(m_CurrentRoomIndex);
-                    m_Rooms.Add(r);
+
+
+                    m_CurrentRoomIndex = value;
+                    if (m_CurrentRoomIndex >= m_Rooms.Count)
+                    {
+                        Room r = SpawnRoomAt(m_CurrentRoomIndex);
+                        m_Rooms.Add(r);
+                        m_CurrentRoom.Room = m_Rooms.Last();
+                        end_room_spawn.Raise();
+                    }
+
                     m_CurrentRoom.Room = m_Rooms.Last();
-                    end_room_spawn.Raise();
+
                 }
-                m_CurrentRoom.Room = m_Rooms.Last();
-                
             }
         }
 

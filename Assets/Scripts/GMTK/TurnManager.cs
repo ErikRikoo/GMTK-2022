@@ -43,6 +43,8 @@ public class TurnManager : MonoBehaviour
 
     private IEnumerator Turn()
     {
+        if (current_room.Room.IsRoomEmpty)
+            EndTurn();
         nbEnnemi = current_room.Room.Enemies.Count();
         index_enemie = 0;
         // coroutine = Turn_Coroutine();
@@ -110,6 +112,7 @@ public class TurnManager : MonoBehaviour
         if (current_room.Room.IsRoomEmpty)//si la salle est vide = tous les monstres sont morts
         {
             Debug.Log("Salle nettoyée!!");
+            
 
             var loot = current_room.Room.Loot;
              while (loot.MoveNext())
@@ -117,7 +120,7 @@ public class TurnManager : MonoBehaviour
                  loot.Current.ExecuteOn(player_holder.player);
             }
             //donne points d'action
-            player_holder.player.number_action += current_room.Room.Enemies.Count();
+            player_holder.player.number_action += (current_room.Room.Enemies.Count()*2);
             
             //deplacement jusqu'a la sortie
             move_player = player_holder.player.movement(current_room.Room.Exit,(() => ChangeRoom.Raise()));
