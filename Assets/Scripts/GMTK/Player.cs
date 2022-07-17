@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using GMTK;
 using GMTK.UI;
 using GMTK.UI.PlayerActions.ActionType;
+using NaughtyAttributes;
 using Unity.VisualScripting;
 using UnityAtoms;
 using UnityAtoms.BaseAtoms;
@@ -31,6 +32,13 @@ public class Player : Entity
 
     [SerializeField] private float speed_player = 1;
 
+
+    [Header("Components")]
+    [SerializeField] private Animator m_Animator;
+
+    [AnimatorParam("m_Animator")]
+    [SerializeField] private int m_WalkAnimParam;
+    
     
     
     // Start is called before the first frame update
@@ -70,6 +78,7 @@ public class Player : Entity
     {
         while (transform.position != pointToRaise.position)
         {
+            m_Animator.SetBool(m_WalkAnimParam, true);
             Vector3 movement_object = (pointToRaise.position - transform.position) * Time.deltaTime * speed_player;
             Debug.Log("move player =  " + movement_object);
             if (Vector3.Distance(pointToRaise.position, transform.position) < 0.3)
@@ -86,6 +95,8 @@ public class Player : Entity
 
             yield return null;
         }
+        m_Animator.SetBool(m_WalkAnimParam, false);
+
     }
 
     private IEnumerator ActionsExecutor;
