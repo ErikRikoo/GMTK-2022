@@ -78,7 +78,7 @@ public class TurnManager : MonoBehaviour
 
     private void test()
     {
-        StopAllCoroutines();
+       // StopAllCoroutines();
         StartCoroutine(coroutine=Turn());
     }
 
