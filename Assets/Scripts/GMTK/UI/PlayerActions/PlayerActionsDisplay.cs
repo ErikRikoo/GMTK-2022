@@ -92,6 +92,11 @@ namespace GMTK.UI.PlayerActions
         
         public void AddAction(APlayerAction action)
         {
+            if (action == null)
+            {
+                return;
+            }
+            
             CurrentPlayer.AddAction(action);
             var text = Instantiate(m_PrefabText, m_DebugPlace);
             text.text = $"{action.GetType().Name} - {action.BetType.GetType().Name} - {action.BetType.DiceFace}";
