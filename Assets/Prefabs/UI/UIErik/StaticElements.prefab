@@ -376,6 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7462980494735692085}
   - component: {fileID: 461583968414478067}
+  - component: {fileID: 2787793977014987343}
   m_Layer: 0
   m_Name: EnemiesStats
   m_TagString: Untagged
@@ -429,6 +430,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2787793977014987343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489358075536485383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02dbbdb4b5648edaea38e063c361112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ChangeRoom: {fileID: 11400000, guid: 3dadc4846a255fe45b1bc5355040b90d, type: 2}
+  m_EscapeRoom: {fileID: 11400000, guid: 7e249166d07c75842b4d3f8d9c773715, type: 2}
+  m_CurrentRoom: {fileID: 11400000, guid: ac026cb511c6fbb459b35841ead7bd2d, type: 2}
+  m_EnemyStatPrefab: {fileID: -8784161168397225432, guid: be08761cc89c4ac4ba61ac43bad772c2, type: 3}
 --- !u!1 &7535359656276889799
 GameObject:
   m_ObjectHideFlags: 0
