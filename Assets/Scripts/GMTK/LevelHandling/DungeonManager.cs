@@ -18,6 +18,8 @@ namespace GMTK.LevelHandling
         [SerializeField] private VoidEvent ChangeRoom ;
         [SerializeField] private VoidEvent playerEscape;
         [SerializeField] private VoidEvent end_room_spawn;
+        [SerializeField] private GameObject YouWin;
+        
         
 
         private int m_CurrentRoomIndex = 0;
@@ -28,7 +30,12 @@ namespace GMTK.LevelHandling
             set
             {
                 if (value == m_DungeonData.Count)
-                    Debug.Log("You win!");
+                {
+                    YouWin.SetActive(true);
+                    Debug.Log("you win");
+                }
+
+
                 else
                 {
 

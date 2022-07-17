@@ -12,5 +12,6 @@ namespace GMTK.LevelHandling
         public bool IsEmpty => Count <= 0;
 
         public Room this[int _index] => m_Rooms[_index];
+        
     }
 }
