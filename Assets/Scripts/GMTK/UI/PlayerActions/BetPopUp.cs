@@ -11,6 +11,8 @@ namespace GMTK.UI.PlayerActions
 {
     public class BetPopUp : PopUp
     {
+        [SerializeField] private Button m_ValidateButton;
+        
         [SerializeField] private string m_RiskFormat = "Risk: {0}%";
         
         [SerializeField] private TextMeshProUGUI m_RiskDisplay;
@@ -49,6 +51,7 @@ namespace GMTK.UI.PlayerActions
                 {
                     m_CurrentlySelectedFace = index;
                     UpdateBetDiceFace();
+                    m_ValidateButton.gameObject.SetActive(true);
                 });
             }
 
@@ -119,6 +122,7 @@ namespace GMTK.UI.PlayerActions
         {
             ResetTypeButtons();
             SetSecondSpaceUIState(false);
+            m_ValidateButton.gameObject.SetActive(false);
             m_BetType = null;
             m_CurrentlySelectedFace = -1;
         }
