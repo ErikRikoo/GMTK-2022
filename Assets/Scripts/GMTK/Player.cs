@@ -11,18 +11,22 @@ using UnityEngine;
 public class Player : Entity
 {
     [SerializeField] private BetLauncher m_BetLauncher;
+    
+    [Header("Events")]
     [SerializeField] private VoidEvent m_EndOfTurn;
     
     [SerializeField] private VoidEvent m_PlayerTurn;
     [SerializeField] private VoidEvent m_ExecuteActions;
-    
-    
-    [SerializeField] private Player_holder player_holder;
     [SerializeField] private VoidEvent playerIsDead;
     [SerializeField] private VoidEvent playerEscape;
 
     [SerializeField] private IntEvent m_DamageChanged;
     [SerializeField] private IntEvent m_PAChanged;
+    [SerializeField] private IntPairEvent m_HealthChanged;
+    
+    [Header("Variables")]
+    [SerializeField] private Player_holder player_holder;
+
     
     
     // Start is called before the first frame update
@@ -31,8 +35,12 @@ public class Player : Entity
         player_holder.player = this;
         m_PAChanged.Raise(m_number_action);
         m_DamageChanged.Raise(damage);
+        m_HealthChanged.Raise( new IntPair()
+        {
+            Item1 = Health,
+            Item2 = health_max
+        });
         m_ExecuteActions.Register(OnExecuteActions);
-        // TODO: Do the same with health
 
         StartCoroutine(c_Test());
     }
@@ -41,6 +49,11 @@ public class Player : Entity
     {
         yield return new WaitForSeconds(1);
         Play();
+        // TakeDamage(2);
+        // yield return new WaitForSeconds(1);
+        // TakeDamage(1);
+
+
     }
 
     public override void Play()
@@ -82,14 +95,14 @@ public class Player : Entity
         else if (real_damage > 0) // il y a des degats et plus de parades 
         {
             number_parry = 0;
-            health = health - real_damage;
+            Health = Health - real_damage;
         }
         else // même nombre de parade que de degat, il y a plus de parade mais pas de degat
             number_parry = 0;
 
-        if (health <= 0)
+        if (Health <= 0)
         {
-            health = 0;
+            Health = 0;
             playerIsDead.Raise();
         }
             
@@ -111,10 +124,10 @@ public class Player : Entity
 
     public void Heal(int heal_value)
     {
-        health+=heal_value;
-        if (health > health_max)
+        Health+=heal_value;
+        if (Health > health_max)
         {
-            health = health_max;
+            Health = health_max;
         }
     }
 
@@ -143,8 +156,21 @@ public class Player : Entity
             m_DamageChanged.Raise(value);
         }
     }
+
+    public int Health
+    {
+        get => health;
+        set
+        {
+            health = value;
+            m_HealthChanged.Raise(new IntPair()
+            {
+                Item1 = value,
+                Item2 = health_max
+            });
+        }
+    }
     
-    // TODO: Do the same with Health
     
     public int m_number_action;
     public int score;
